@@ -105,10 +105,9 @@ for c in range(1, len(s)+1):
             try:
                 valores[c].append(s2 // 10)
                 reserva[(c+1)*-1] = s2 // 10
-                system('cls')
-                show()
             except:
                 valores[c-1].append(s2 // 10)
                 reserva[(c+1)*-1] = s2 // 10
+            finally:
                 system('cls')
                 show()
