@@ -29,10 +29,16 @@ def show():
     print('')
     conta(partext)
     spaces2 = f'{" " * (len(s) - len(s[c*-1:]))}'
-    if len(s) < len(partext2[0]):
-        print(f'  {spaces2}{s[c*-1:]}', end='', flush=True)
+    if c == len(s):
+        if len(s) < len(partext2[0]):
+            print(f'  {spaces2}{s}', end='', flush=True)
+        else:
+            print(f' {spaces2}{s}', end='', flush=True)
     else:
-        print(f' {spaces2}{s[c*-1:]}', end='', flush=True)
+        if len(s) < len(partext2[0]):
+            print(f'  {spaces2}{s[c*-1:]}', end='', flush=True)
+        else:
+            print(f' {spaces2}{s[c*-1:]}', end='', flush=True)
 
 
 # Administrando a interação
@@ -80,9 +86,10 @@ s = str(sum(parcelas))
 for c in range(0, len(partext2[0])):
     reserva.append(' ')
 for c in range(1, len(s)+1):
+    if c > 1:
+        sleep(1.5)
     system('cls')
     show()
-    sleep(1.5)
     try:
         s2 = sum(valores[c-1])
     except:
