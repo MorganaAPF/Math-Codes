@@ -5,12 +5,7 @@ from os import system
 def leiaint(msg, erro='ERRO! Digite um número inteiro válido.'):
     while True:
         try:
-            while True:
-                n = int(input(msg))
-                if n == 1:
-                    print('Você não pode somar um número sozinho! Digite uma opção válida.')
-                else:
-                    break
+            n = int(input(msg))
         except:
             print(erro)
         else:
@@ -51,7 +46,12 @@ unidades = []
 reserva = []
 system('cls')
 # Administrando a interação
-quant = leiaint('Quantos números você irá somar? ', 'Digite uma quantidade válida!')
+while True:
+    quant = leiaint('Quantos números você irá somar? ', 'Digite uma quantidade válida!')
+    if quant == 1:
+        print('Você não pode somar um número sozinho! Digite uma opção válida.')
+    else: 
+        break
 for c in range(1, quant+1):
     parcelas.append(leiaint(f'{c}º número: ', 'Digite um número válido!'))
 # Formatando a interface
