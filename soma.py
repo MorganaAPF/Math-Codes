@@ -29,13 +29,13 @@ def show():
     print('')
     conta(partext)
     spaces2 = f'{" " * (len(s) - len(s[c*-1:]))}'
-    if c == len(s):
-        if len(s) < len(partext2[0]):
-            print(f'  {spaces2}{s}', end='', flush=True)
+    if c == len(partext2[0]):
+        if len(s) <= len(partext2[0]):
+            print(f'  {s}', end='', flush=True)
         else:
-            print(f' {spaces2}{s}', end='', flush=True)
+            print(f' {s}', end='', flush=True)
     else:
-        if len(s) < len(partext2[0]):
+        if len(s) <= len(partext2[0]):
             print(f'  {spaces2}{s[c*-1:]}', end='', flush=True)
         else:
             print(f' {spaces2}{s[c*-1:]}', end='', flush=True)
@@ -90,6 +90,8 @@ for c in range(1, len(s)+1):
         sleep(1.5)
     system('cls')
     show()
+    if c == len(partext2[0]):
+        break
     try:
         s2 = sum(valores[c-1])
     except:
