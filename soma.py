@@ -18,7 +18,6 @@ def leiaint(msg, erro='ERRO! Digite um número inteiro válido.'):
         
 
 def conta(soma):
-    '''system('cls')'''
     for i, c in enumerate(soma):
         if i == half:
             print(f'+ {c}')
