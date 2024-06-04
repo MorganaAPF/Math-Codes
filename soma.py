@@ -44,8 +44,8 @@ parcelas = []
 valores = []
 unidades = []
 reserva = []
-system('cls')
 # Administrando a interação
+system('cls')
 while True:
     quant = leiaint('Quantos números você irá somar? ', 'Digite uma quantidade válida!')
     if quant == 1:
