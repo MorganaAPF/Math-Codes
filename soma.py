@@ -22,11 +22,25 @@ def conta(soma):
     print(f' ‾{"‾" * len(soma[0])}')
 
 
+def show():
+    print('  ', end='')
+    for d in reserva:
+        print(d, end='', flush=True)
+    print('')
+    conta(partext)
+    spaces2 = f'{" " * (len(s) - len(s[c*-1:]))}'
+    if len(s) < len(partext2[0]):
+        print(f'  {spaces2}{s[c*-1:]}', end='', flush=True)
+    else:
+        print(f' {spaces2}{s[c*-1:]}', end='', flush=True)
+
+
 # Administrando a interação
 parcelas = []
 valores = []
 unidades = []
 reserva = []
+system('cls')
 quant = leiaint('Quantos números você irá somar? ', 'Digite uma quantidade válida!')
 half = quant / 2
 if float(half):
@@ -44,7 +58,10 @@ for i, c in enumerate(partext):
     if len(c) < len(partext[0]):
         spaces = f'{" " * (len(partext[0]) - len(c))}' 
         partext[i] = (f'{spaces}{c}')
+system('cls')
+print(' ')
 conta(partext)
+sleep(1.5)
 # Separando ordens numéricas 
 for i, c in enumerate(parcelas):
     cont = 1
@@ -60,30 +77,25 @@ for i, c in enumerate(parcelas):
         loop += 1
 # Resultado aparecendo de forma animada
 s = str(sum(parcelas))
+for c in range(0, len(partext2[0])):
+    reserva.append(' ')
 for c in range(1, len(s)+1):
-    if c != 1:
-        sleep(1.5)
     system('cls')
-    print('  ', end='')
-    for d in reserva:
-        print(d, end='', flush=True)
-    print('')
-    conta(partext)
-    spaces2 = f'{" " * (len(s) - len(s[c*-1:]))}'
-    if len(s) < len(partext2[0]):
-        print(f'  {spaces2}{s[c*-1:]}', end='', flush=True)
-    else:
-        print(f' {spaces2}{s[c*-1:]}', end='', flush=True)
+    show()
+    sleep(1.5)
     try:
         s2 = sum(valores[c-1])
     except:
         s2 = 0
     else:
         if s2 > 9 and c < len(partext2[0]):
-            reserva.insert(0, (s2 // 10))
             try:
                 valores[c].append(s2 // 10)
+                reserva[(c+1)*-1] = s2 // 10
+                system('cls')
+                show()
             except:
                 valores[c-1].append(s2 // 10)
-        elif s2 <= 9 and c < len(partext2[0]):
-            reserva.insert(0, (' '))
+                reserva[(c+1)*-1] = s2 // 10
+                system('cls')
+                show()
