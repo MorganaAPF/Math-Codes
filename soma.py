@@ -48,7 +48,11 @@ reserva = []
 system('cls')
 while True:
     quant = leiaint('Quantos números você irá somar? (máx: 10)', 'Por favor, digite uma quantidade válida!')
-    if quant == 1:
+    if quant < 0:
+        quant *= -1
+    if quant == 0:
+        print('Por favor, digite uma quantidade válida!')
+    elif quant == 1:
         print('Você não pode somar um número sozinho! Por favor, digite uma opção válida.')
     elif quant > 10:
         print('O programa só pode somar até 10 números! Por favor, digite uma opção válida.')
